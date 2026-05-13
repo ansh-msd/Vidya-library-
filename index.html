@@ -67,6 +67,22 @@ nav ul li a:hover{
     color:#00bfff;
 }
 
+/* MOBILE MENU */
+
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    gap:5px;
+}
+
+.menu-toggle span{
+    width:28px;
+    height:3px;
+    background:#fff;
+    border-radius:5px;
+}
+
 /* HERO */
 
 .hero{
@@ -404,8 +420,25 @@ footer{
         font-size:45px;
     }
 
+    .menu-toggle{
+        display:flex;
+    }
+
     nav ul{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#0f172a;
+        flex-direction:column;
+        text-align:center;
+        padding:25px 0;
+        gap:25px;
         display:none;
+    }
+
+    nav ul.active{
+        display:flex;
     }
 
 }
@@ -418,6 +451,7 @@ footer{
 <!-- NAVBAR -->
 
 <nav>
+
     <div class="logo">VIDYA <span>LIBRARY</span></div>
 
     <ul>
@@ -427,6 +461,13 @@ footer{
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
 </nav>
 
 <!-- HERO -->
@@ -681,6 +722,17 @@ topBtn.addEventListener("click",()=>{
         top:0,
         behavior:"smooth"
     });
+
+});
+
+// MOBILE MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.querySelector("nav ul");
+
+menuToggle.addEventListener("click",()=>{
+
+    navMenu.classList.toggle("active");
 
 });
 
