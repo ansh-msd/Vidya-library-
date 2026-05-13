@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vidya Library | Mahmudabad</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f8ff;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#00bfff;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00bfff;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('1000127899.png');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+}
+
+.hero-content{
+    max-width:750px;
+    color:#fff;
+}
+
+.hero-content h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-content h1 span{
+    color:#00bfff;
+}
+
+.hero-content p{
+    font-size:18px;
+    line-height:32px;
+    margin-bottom:35px;
+    color:#ddd;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.btn-primary{
+    background:#00bfff;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#009ad1;
+    transform:translateY(-4px);
+}
+
+.btn-secondary{
+    border:2px solid #fff;
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* STATS */
+
+.stats{
+    padding:80px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    background:#fff;
+}
+
+.stat-box{
+    background:#f7fbff;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h2{
+    color:#00bfff;
+    font-size:42px;
+}
+
+.stat-box p{
+    margin-top:10px;
+    font-weight:500;
+}
+
+/* ABOUT */
+
+.about{
+    padding:100px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.section-title{
+    font-size:45px;
+    margin-bottom:25px;
+}
+
+.section-title span{
+    color:#00bfff;
+}
+
+.about p{
+    line-height:34px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+/* FEATURES */
+
+.features{
+    padding:100px 8%;
+    background:#0f172a;
+    color:#fff;
+}
+
+.features .section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.feature-card{
+    background:#1e293b;
+    padding:40px 30px;
+    border-radius:25px;
+    transition:0.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    background:#24354d;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.feature-card p{
+    color:#ccc;
+    line-height:28px;
+}
+
+/* GALLERY */
+
+.gallery{
+    padding:100px 8%;
+}
+
+.gallery .section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:25px;
+    transition:0.4s;
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.04);
+}
+
+/* REVIEW */
+
+.review{
+    padding:100px 8%;
+    background:#eaf7ff;
+}
+
+.review-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.review-box{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.review-box h3{
+    color:#00bfff;
+    margin-bottom:15px;
+}
+
+.review-box p{
+    line-height:30px;
+    color:#555;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 8%;
+    background:#111827;
+    color:#fff;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:50px;
+}
+
+.contact-box h3{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.contact-box p{
+    margin-bottom:15px;
+    color:#ccc;
+    line-height:30px;
+}
+
+.contact form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact input,
+.contact textarea{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.contact textarea{
+    resize:none;
+    height:150px;
+}
+
+.contact button{
+    padding:15px;
+    border:none;
+    background:#00bfff;
+    color:#fff;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.contact button:hover{
+    background:#009ad1;
+}
+
+/* FOOTER */
+
+footer{
+    background:#000;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+    font-size:15px;
+}
+
+/* SCROLL BUTTON */
+
+.top-btn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:50px;
+    height:50px;
+    background:#00bfff;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+    z-index:1000;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero-content h1{
+        font-size:45px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">VIDYA <span>LIBRARY</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Best Study Environment In <span>Mahmudabad</span></h1>
+
+        <p>
+            Welcome to Vidya Library — a peaceful, professional and fully air-conditioned study space designed for serious students. Experience silence, comfort, discipline and motivation together under one roof.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Join Now</a>
+            <a href="#gallery" class="btn btn-secondary">Explore Library</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>24×7</h2>
+        <p>Open Library</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>4.9★</h2>
+        <p>Google Rating</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>61+</h2>
+        <p>Positive Reviews</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100%</h2>
+        <p>Peaceful Environment</p>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <img src="1000127897.png" alt="Library Interior">
+
+    <div>
+
+        <h2 class="section-title">About <span>Vidya Library</span></h2>
+
+        <p>
+            Vidya Library is one of the most professional study centers in Mahmudabad. Built specially for focused students, our library provides silent study cabins, comfortable seating, air conditioning and a disciplined atmosphere.
+        </p>
+
+        <p>
+            Whether you are preparing for UPSC, SSC, Banking, Railway, NEET, JEE or college exams — Vidya Library gives you the perfect environment to stay productive every day.
+        </p>
+
+        <p>
+            Our mission is simple — create a premium study atmosphere where every student feels motivated to achieve success.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+    <h2 class="section-title">Why Students <span>Choose Us</span></h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <h3>❄ Fully AC Hall</h3>
+            <p>
+                Comfortable air-conditioned environment for long and productive study hours.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🔇 Peaceful Atmosphere</h3>
+            <p>
+                Noise-free and disciplined study zone specially designed for concentration.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Power Backup</h3>
+            <p>
+                Continuous electricity and charging points available at every desk.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🪑 Personal Cabins</h3>
+            <p>
+                Spacious study desks with comfortable chairs and personal lighting.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🌙 24×7 Access</h3>
+            <p>
+                Study anytime according to your schedule without interruptions.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📍 Prime Location</h3>
+            <p>
+                Easy to reach location near Honda Agency, Rampur Mathura Road, Mahmudabad.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <h2 class="section-title">Library <span>Gallery</span></h2>
+
+    <div class="gallery-grid">
+
+        <img src="1000127899.png" alt="">
+        <img src="1000127897.png" alt="">
+        <img src="1000127901.png" alt="">
+
+    </div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section class="review">
+
+    <h2 class="section-title" style="text-align:center;">Student <span>Reviews</span></h2>
+
+    <div class="review-container">
+
+        <div class="review-box">
+            <h3>★★★★★</h3>
+            <p>
+                “Best place in Mahmudabad for study. Very peaceful and highly professional environment.”
+            </p>
+        </div>
+
+        <div class="review-box">
+            <h3>★★★★★</h3>
+            <p>
+                “The management and facilities are amazing. Perfect for competitive exam preparation.”
+            </p>
+        </div>
+
+        <div class="review-box">
+            <h3>★★★★★</h3>
+            <p>
+                “Clean environment, AC facility and comfortable seating make this library outstanding.”
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+
+            <h3>Contact Information</h3>
+
+            <p><strong>📍 Address:</strong><br>
+            Rampur Mathura Road, Near Honda Agency, Mahmudabad, Sitapur</p>
+
+            <p><strong>📞 Phone:</strong><br>
+            092363 32370</p>
+
+            <p><strong>🕒 Timing:</strong><br>
+            Open 24 Hours</p>
+
+            <p><strong>⭐ Google Rating:</strong><br>
+            4.9 / 5</p>
+
+        </div>
+
+        <div class="contact-box">
+
+            <h3>Admission Enquiry</h3>
+
+            <form>
+
+                <input type="text" placeholder="Your Name" required>
+
+                <input type="tel" placeholder="Mobile Number" required>
+
+                <textarea placeholder="Your Message"></textarea>
+
+                <button type="submit">Send Enquiry</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Vidya Library | Designed With Professional UI
+</footer>
+
+<!-- TOP BUTTON -->
+
+<div class="top-btn" id="topBtn">↑</div>
+
+<script>
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 300){
+        topBtn.style.display = "flex";
+    }else{
+        topBtn.style.display = "none";
+    }
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+// FORM ALERT
+
+document.querySelector("form").addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    alert("Thank You! Your enquiry has been submitted successfully.");
+
+});
+
+</script>
+
+</body>
+</html>
