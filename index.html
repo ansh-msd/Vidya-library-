@@ -116,10 +116,25 @@ nav{
 }
 
 .logo{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
     color:#fff;
     font-size:30px;
     font-weight:800;
     letter-spacing:1px;
+
+}
+
+.logo img{
+
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+
 }
 
 .logo span{
@@ -542,6 +557,14 @@ footer{
     nav ul.active{
         display:flex;
     }
+    .logo{
+    font-size:22px;
+}
+
+.logo img{
+    width:35px;
+    height:35px;
+}
 
 }
     /* INSTALL POPUP */
@@ -672,7 +695,15 @@ footer{
 
 <nav>
 
-    <div class="logo">VIDYA <span>LIBRARY</span></div>
+    <div class="logo">
+
+    <img src="logo.png" alt="Logo">
+
+    <div>
+        VIDYA <span>LIBRARY</span>
+    </div>
+
+</div>
 
     <ul>
         <li><a href="#home">Home</a></li>
