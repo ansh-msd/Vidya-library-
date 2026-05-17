@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="google-site-verification" content="JGk6ZXqrPjhtdJrdqp1qMjrYxSeDoOyZs0TFZukPK4Y" />
+
 <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Vidya Library Mahmudabad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta name="description"
-    content="Vidya Library Mahmudabad - Best study center in mahmudabad with AC, WiFi, peaceful environment, reserved seats and lockers." />
+<title>Vidya Library Mahmudabad | Best Reading Room & Study Center</title>
 
-  <meta name="keywords"
-    content="Vidya Library, Mahmudabad Library, Study Center in mahudabad, Reading Room" />
+<meta name="description"
+content="Vidya Library Mahmudabad - Best study center with AC, WiFi, peaceful environment, reserved seats and lockers." />
 
-  <meta name="author" content="Vidya Library" />
+<meta name="keywords"
+content="Vidya Library, Mahmudabad Library, Best Library in Mahmudabad, Reading Room, Study Center in Mahmudabad" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Vidya Library Mahmudabad" />
-  <meta property="og:description"
-    content="Peaceful study space with AC, WiFi and reserved seats." />
-  <meta property="og:type" content="website" />
+<meta name="author" content="Vidya Library" />
 
-<link rel="manifest" href="manifest.json">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="canonical"
+href="https://vidya-library-plum.vercel.app/" />
+
+<!-- Open Graph -->
+
+<meta property="og:title"
+content="Vidya Library Mahmudabad" />
+
+<meta property="og:description"
+content="Peaceful study space with AC, WiFi and reserved seats." />
+
+<meta property="og:type"
+content="website" />
+
+<meta property="og:url"
+content="https://vidya-library-plum.vercel.app/" />
+
+<!-- Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
 
 <style>
 
@@ -522,13 +540,12 @@ footer{
         <h1>Best Study Environment In <span>Mahmudabad</span></h1>
 
         <p>
-            Welcome to Vidya Library — a peaceful, professional and fully air-conditioned study space designed for serious students. Experience silence, comfort, discipline and motivation together under one roof.
+            Welcome to Vidya Library — a peaceful, professional and fully air-conditioned study space designed for serious students. Experience silence, comfort, discipline and motivation together under one roof. Best Reading Room and Study Center in Mahmudabad with Ac, WiFi and peaceful environment.
         </p>
 
         <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Join Now</a>
             <a href="#gallery" class="btn btn-secondary">Explore Library</a>
-            <button id="installBtn" class="btn btn-primary" style="display:none;">Install App</button>
         </div>
 
     </div>
@@ -807,38 +824,6 @@ document.querySelector("form").addEventListener("submit",(e)=>{
     alert("Thank You! Your enquiry has been submitted successfully.");
 
 });
-
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
-}
-
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-
-    e.preventDefault();
-
-    deferredPrompt = e;
-
-    document.getElementById('installBtn')
-    .style.display = 'inline-block';
-
-});
-
-document.getElementById('installBtn')
-.addEventListener('click', async () => {
-
-    deferredPrompt.prompt();
-
-    const { outcome } =
-    await deferredPrompt.userChoice;
-
-    console.log(outcome);
-
-});
-
-
 
 </script>
 
