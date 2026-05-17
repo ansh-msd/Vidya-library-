@@ -35,7 +35,8 @@ content="website" />
 content="https://vidya-library-plum.vercel.app/" />
 
 <!-- Google Fonts -->
-
+<link rel="manifest" href="manifest.json">
+<link rel ="icon" type="img/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
 rel="stylesheet">
 
@@ -994,7 +995,11 @@ document.querySelector("form").addEventListener("submit",(e)=>{
     alert("Thank You! Your enquiry has been submitted successfully.");
 
 });
+if ('serviceWorker' in navigator) {
 
+    navigator.serviceWorker.register('sw.js');
+
+}
 let deferredPrompt;
 
 window.addEventListener(
