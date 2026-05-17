@@ -502,6 +502,124 @@ footer{
     }
 
 }
+    /* INSTALL POPUP */
+
+.install-popup{
+
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:340px;
+    background:#fff;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.2);
+    z-index:99999;
+
+    animation:popupShow 0.5s ease;
+
+}
+
+@keyframes popupShow{
+
+    from{
+        transform:translateY(40px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+.install-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.install-left{
+    display:flex;
+    gap:12px;
+}
+
+.install-logo{
+
+    width:55px;
+    height:55px;
+    border-radius:14px;
+    object-fit:cover;
+
+}
+
+.install-content h3{
+    font-size:18px;
+    color:#111;
+    margin-bottom:4px;
+}
+
+.install-content p{
+    font-size:14px;
+    color:#666;
+    line-height:22px;
+}
+
+.close-popup{
+
+    font-size:22px;
+    cursor:pointer;
+    color:#888;
+
+}
+
+.install-buttons{
+
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+
+}
+
+.install-btn{
+
+    flex:1;
+    background:#00bfff;
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+
+}
+
+.later-btn{
+
+    flex:1;
+    background:#eee;
+    color:#333;
+    border:none;
+    padding:12px;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+
+}
+
+@media(max-width:600px){
+
+    .install-popup{
+
+        width:92%;
+        right:4%;
+        bottom:15px;
+
+    }
+
+}
 
 </style>
 </head>
@@ -781,6 +899,58 @@ footer{
 
 <div class="top-btn" id="topBtn">↑</div>
 
+
+<!-- INSTALL POPUP -->
+
+<div class="install-popup" id="installPopup">
+
+    <div class="install-top">
+
+        <div class="install-left">
+
+            <img src="1.png" class="install-logo">
+
+            <div class="install-content">
+
+                <h3>Install Vidya Library</h3>
+
+                <p>
+                Quick access & better experience for students.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="close-popup"
+        id="closePopup">
+
+        ×
+
+        </div>
+
+    </div>
+
+    <div class="install-buttons">
+
+        <button class="install-btn"
+        id="installAppBtn">
+
+        Install
+
+        </button>
+
+        <button class="later-btn"
+        id="laterBtn">
+
+        Not Now
+
+        </button>
+
+    </div>
+
+</div>
+
 <script>
 
 const topBtn = document.getElementById("topBtn");
@@ -822,6 +992,63 @@ document.querySelector("form").addEventListener("submit",(e)=>{
     e.preventDefault();
 
     alert("Thank You! Your enquiry has been submitted successfully.");
+
+});
+
+let deferredPrompt;
+
+window.addEventListener(
+'beforeinstallprompt',
+(e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+});
+
+document
+.getElementById("installAppBtn")
+.addEventListener("click",
+
+async ()=>{
+
+    if(deferredPrompt){
+
+        deferredPrompt.prompt();
+
+        const { outcome } =
+        await deferredPrompt.userChoice;
+
+        console.log(outcome);
+
+    }else{
+
+        alert(
+        "Use Chrome menu to install app."
+        );
+
+    }
+
+});
+
+document
+.getElementById("closePopup")
+.addEventListener("click",()=>{
+
+    document
+    .getElementById("installPopup")
+    .style.display = "none";
+
+});
+
+document
+.getElementById("laterBtn")
+.addEventListener("click",()=>{
+
+    document
+    .getElementById("installPopup")
+    .style.display = "none";
 
 });
 
